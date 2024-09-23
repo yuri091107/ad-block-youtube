@@ -16,16 +16,13 @@ function removeAds() {
     ads.forEach(ad => ad.remove()); // Remove elementos de anúncio encontrados
   });
 
-  // Verifica se um anúncio está em reprodução e avança o vídeo
+  // Verifica se um anúncio está em reprodução e avança o vídeo imediatamente
   const videoPlayer = document.querySelector('.video-stream');
   
   if (document.querySelector('.ad-showing')) {
-    if (videoPlayer && videoPlayer.readyState >= 3 && !isNaN(videoPlayer.duration) && videoPlayer.duration > 0) {
-      // Verifica se o vídeo está pronto e a duração é válida
+    if (videoPlayer && !isNaN(videoPlayer.duration) && videoPlayer.duration > 0) {
       videoPlayer.currentTime = videoPlayer.duration; // Pula o anúncio inteiro
-      console.log('Anúncio detectado e pulado.');
-    } else {
-      console.log('O player não está pronto ou a duração do vídeo é inválida.');
+      console.log('Anúncio detectado e pulado imediatamente.');
     }
   }
 
@@ -36,7 +33,7 @@ function removeAds() {
     console.log('Sobreposição de anúncio fechada.');
   }
 
-  // Esconde qualquer interação de anúncio
+  // Remove qualquer interação de anúncio
   const interactiveAds = document.querySelectorAll('.ytp-ad-action-interstitial');
   interactiveAds.forEach(ad => ad.remove());
 }
@@ -50,4 +47,4 @@ observer.observe(document.body, {
 });
 
 // Executa repetidamente para garantir que os anúncios sejam removidos rapidamente
-setInterval(removeAds, 500);  // Checa a cada meio segundo
+setInterval(removeAds, 100);  // Checa a cada 100ms para pular anúncios mais rapidamente
