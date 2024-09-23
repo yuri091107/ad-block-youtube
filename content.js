@@ -16,13 +16,14 @@ function removeAds() {
     ads.forEach(ad => ad.remove()); // Remove elementos de anúncio encontrados
   });
 
-  // Verifica se um anúncio está em reprodução e avança o vídeo imediatamente
+  // Verifica se um anúncio está em reprodução e avança o vídeo
   const videoPlayer = document.querySelector('.video-stream');
-  
+
   if (document.querySelector('.ad-showing')) {
     if (videoPlayer && !isNaN(videoPlayer.duration) && videoPlayer.duration > 0) {
       videoPlayer.currentTime = videoPlayer.duration; // Pula o anúncio inteiro
-      console.log('Anúncio detectado e pulado imediatamente.');
+      videoPlayer.play(); // Garante que o vídeo principal comece imediatamente
+      console.log('Anúncio detectado, pulado, e vídeo principal iniciado.');
     }
   }
 
