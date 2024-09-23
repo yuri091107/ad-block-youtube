@@ -21,4 +21,4 @@ This project is a lightweight JavaScript script built to function as a browser e
 
 ## How It Works
 
-The script, intended to be run within a browser extension such as **Tampermonkey** or **Greasemonkey**, monitors the DOM for known ad-related elements and removes them as they appear. When an ad starts playing, it automatically jumps to the end of the ad by adjusting the video’s current time. It also removes interactive ads and closes ad overlays
+The script, intended to be run within a browser extension such as **Tampermonkey** or **Greasemonkey**, monitors the DOM for known ad-related elements and removes them as they appear. When an ad starts playing, it automatically jumps to the end of the ad by adjusting the video’s current time. It also removes interactive ads and closes ad overlays.
