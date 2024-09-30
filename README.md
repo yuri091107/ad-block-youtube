@@ -1,4 +1,4 @@
-#  AdBlocker Script
+#  AdBlocker Script (IN MAINTENCE)
 
 This project is a lightweight JavaScript script built to function as a browser extension, designed to remove video ads and interactive ad interfaces, primarily targeting video players. It leverages DOM manipulation and the `MutationObserver` API to efficiently detect and remove ads in real-time.
 
